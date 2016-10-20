@@ -1,7 +1,5 @@
 #include "AppDelegate.h"
-#include "MainMenu/MainMenu.h"
 #include "HelloWorldScene.h"
-#include "CameraRotationTest.h"
 
 USING_NS_CC;
 

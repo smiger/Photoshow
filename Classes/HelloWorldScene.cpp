@@ -1,5 +1,4 @@
 #include "HelloWorldScene.h"
-#include "CameraRotationTest.h"
 #include "PhotoShow.h"
 
 USING_NS_CC;

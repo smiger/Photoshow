@@ -2,7 +2,6 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
-#include "cwSprite3D.h"
 class HelloWorld : public cocos2d::Layer
 {
 public:
@@ -21,8 +20,6 @@ public:
 	virtual void update(float dt);
 
 private:
-	cwSprite3D* p3D1;
-	cwSprite3D* p3D2;
 	float fDegree1;
 	float fDegree2;
 };

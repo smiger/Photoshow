@@ -26,6 +26,22 @@ bool PhotoShow::init()
 		return false;
 	size = Director::getInstance()->getWinSize();
 
+	auto layer = Layer::create();
+	addChild(layer);
+
+	auto camera = Camera::createOrthographic(size.width, size.height, 1, 1000);
+	camera->setCameraFlag(CameraFlag::USER2);
+	camera->setPosition3D(Vec3(0, 0, 0));
+	layer->addChild(camera);
+
+	auto background = Sprite::create("bk.jpg");
+	background->setPosition3D(Vec3(size.width/2, size.height/2, -10));
+	auto sp3d = Sprite3D::create();
+	sp3d->addChild(background);
+	layer->addChild(sp3d);
+	layer->setCameraMask(4);
+
+
 	auto layer3D = Layer::create();
 	addChild(layer3D, 0);
 	_layer3D = layer3D;
@@ -38,10 +54,6 @@ bool PhotoShow::init()
 		_camera->lookAt(Vec3(size.width/2, size.height/2, 0.f));
 		_layer3D->addChild(_camera);
 	}
-
-
-
-	
 
 	//Ìí¼Ó´¥ÃşÏìÓ¦
 	auto _listener = EventListenerTouchOneByOne::create();
@@ -77,12 +89,7 @@ bool PhotoShow::init()
 		
 	}
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, this);
-	auto background = Sprite::create("bk.jpg");
-	background->setPosition3D(Vec3(size.width/2, size.height/2, -250));
-	background->setScale(1.2f);
-	auto sp3d = Sprite3D::create();
-	sp3d->addChild(background);
-	_layer3D->addChild(sp3d);
+
 	//sortVector();
 	_layer3D->setCameraMask(2);
 
